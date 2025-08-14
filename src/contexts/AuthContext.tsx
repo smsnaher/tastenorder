@@ -17,15 +17,11 @@ const AuthContext = createContext<AuthContextType>({
   loading: true,
 });
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
-
 interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [userData, setUserData] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -64,3 +60,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+// Hook to use the auth context
+const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+// Export both the provider and hook together
+export { AuthProvider, useAuth };

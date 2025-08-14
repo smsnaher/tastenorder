@@ -127,6 +127,26 @@ users/{userId}
 
 The app is configured for automatic deployment to GitHub Pages using GitHub Actions. The workflow file is located at `.github/workflows/deploy.yml`.
 
+### Setting up GitHub Secrets
+
+For secure deployment, add the following secrets to your GitHub repository:
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret** and add each of these:
+
+| Secret Name | Description | Example Value |
+|-------------|-------------|---------------|
+| `VITE_FIREBASE_API_KEY` | Your Firebase API key | `AIzaSyBdVl-cCQ...` |
+| `VITE_FIREBASE_AUTH_DOMAIN` | Your Firebase auth domain | `myproject.firebaseapp.com` |
+| `VITE_FIREBASE_PROJECT_ID` | Your Firebase project ID | `myproject-12345` |
+| `VITE_FIREBASE_STORAGE_BUCKET` | Your Firebase storage bucket | `myproject.appspot.com` |
+| `VITE_FIREBASE_MESSAGING_SENDER_ID` | Your Firebase sender ID | `123456789` |
+| `VITE_FIREBASE_APP_ID` | Your Firebase app ID | `1:123456789:web:abc123` |
+| `VITE_FIREBASE_MEASUREMENT_ID` | Your Firebase measurement ID | `G-ABC123DEF4` |
+
+### Deploying
+
 To deploy:
 
 1. Push your changes to the `main` branch

@@ -6,13 +6,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // Make sure to create a .env file with your Firebase config values
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyAvynDwtaNqxvzxpm2aObDGLRXxhxQ-biU",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "react-login-register-firebase.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "react-login-register-firebase",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "react-login-register-firebase.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "112639451100",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:112639451100:web:d18bbc490c3539f703b919",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-0GV61Q97JP"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase

@@ -24,8 +24,9 @@ const Login: React.FC<LoginProps> = ({ onSwitchToRegister }) => {
       setLoading(true);
       await loginUser(email, password);
       // User will be redirected automatically by the AuthContext
-    } catch (error: any) {
-      setError(error.message || 'Failed to log in');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to log in';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

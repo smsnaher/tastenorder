@@ -76,7 +76,7 @@ export const getUserData = async (uid: string) => {
 };
 
 // Add a document to a collection (example function for saving additional data)
-export const addUserDocument = async (uid: string, collectionName: string, data: any) => {
+export const addUserDocument = async (uid: string, collectionName: string, data: Record<string, unknown>) => {
   try {
     const docRef = await addDoc(collection(db, 'users', uid, collectionName), {
       ...data,

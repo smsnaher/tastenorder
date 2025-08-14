@@ -36,8 +36,9 @@ const Register: React.FC<RegisterProps> = ({ onSwitchToLogin }) => {
       setLoading(true);
       await registerUser(email, password, displayName);
       // User will be redirected automatically by the AuthContext
-    } catch (error: any) {
-      setError(error.message || 'Failed to create account');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to create account';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

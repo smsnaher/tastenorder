@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser } from '../firebase/auth';
+import { getFirebaseErrorMessage } from '../utils/firebaseErrors';
 
 interface LoginProps {
   onSwitchToRegister: () => void;
@@ -25,7 +26,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToRegister }) => {
       await loginUser(email, password);
       // User will be redirected automatically by the AuthContext
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to log in';
+      const errorMessage = getFirebaseErrorMessage(error);
       setError(errorMessage);
     } finally {
       setLoading(false);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { registerUser } from '../firebase/auth';
+import { getFirebaseErrorMessage } from '../utils/firebaseErrors';
 
 interface RegisterProps {
   onSwitchToLogin: () => void;
@@ -37,7 +38,7 @@ const Register: React.FC<RegisterProps> = ({ onSwitchToLogin }) => {
       await registerUser(email, password, displayName);
       // User will be redirected automatically by the AuthContext
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to create account';
+      const errorMessage = getFirebaseErrorMessage(error);
       setError(errorMessage);
     } finally {
       setLoading(false);

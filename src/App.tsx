@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext.tsx';
 import { useAuth } from './hooks/useAuth';
 import Login from './components/Login';
 import Register from './components/Register';

@@ -43,9 +43,13 @@ const Dashboard: React.FC = () => {
       </div>
       
       <div className="dashboard-content">
-        <h3>Your Data</h3>
-        <p>Your user data is securely stored in Firebase Firestore.</p>
-        <p>You can extend this dashboard to show more user-specific content.</p>
+        <h3>Food List</h3>
+        <input type="text" placeholder="Search food..." className="search-bar" />
+        <button className="add-food-button">Add New Food</button>
+        <div className="food-list">
+          {/* Placeholder for food items */}
+          <p>No food items available. Please add some!</p>
+        </div>
       </div>
     </div>
   );

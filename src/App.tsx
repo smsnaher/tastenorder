@@ -1,24 +1,35 @@
-// ...existing code...
+import React, { useState } from 'react';
 import './App.css';
 import { AuthProvider } from './contexts/AuthContext.tsx';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './hooks/useAuth';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 
+const AuthWrapper: React.FC = () => {
+  const { currentUser } = useAuth();
+  const [isLogin, setIsLogin] = useState(true);
+
+  if (currentUser) {
+    return <Dashboard />;
+  }
+
+  return (
+    <div className="main-container">
+      <h1>React Login & Register with Firebase</h1>
+      {isLogin ? (
+        <Login onSwitchToRegister={() => setIsLogin(false)} />
+      ) : (
+        <Register onSwitchToLogin={() => setIsLogin(true)} />
+      )}
+    </div>
+  );
+};
 
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/admin" element={<Dashboard />} />
-          <Route path="/tastenorder/login" element={<Login onSwitchToRegister={() => window.location.href = '/tastenorder/register'} />} />
-          <Route path="/tastenorder/register" element={<Register onSwitchToLogin={() => window.location.href = '/tastenorder/login'} />} />
-          {/* Default route: redirect to /login */}
-          <Route path="*" element={<Navigate to="/tastenorder/login" replace />} />
-        </Routes>
-      </Router>
+      <AuthWrapper />
     </AuthProvider>
   );
 }

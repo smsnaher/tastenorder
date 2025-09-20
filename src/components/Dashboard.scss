@@ -1,0 +1,136 @@
+// Dashboard.scss
+
+/* Grid view styles (copied from Dashboard.css) */
+.food-card-list.grid-view {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.food-card {
+  position: relative;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 0 16px 0;
+  width: calc(33% - 12.5px);
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+
+}
+
+// List view overrides for food-card when inside .food-card-list.list-view
+.food-card-list.list-view .food-card {
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 20px;
+  width: 100%;
+  min-height: 100px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.food-card:hover {
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.12);
+}
+
+.food-card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 10px;
+  display: block;
+
+}
+
+// List view overrides for image when inside .food-card-list.list-view .food-card
+.food-card-list.list-view .food-card .food-card-image {
+  width: 100px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 0;
+  margin-right: 18px;
+}
+
+// Make Category & Cuisine inline
+.food-card-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+// List view overrides for details when inside .food-card-list.list-view .food-card
+.food-card-list.list-view .food-card .food-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.food-card-delete {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #c62828;
+    background: transparent;
+  }
+
+}
+
+// List view overrides for delete button when inside .food-card-list.list-view .food-card
+.food-card-list.list-view .food-card .food-card-delete {
+  position: static;
+  margin-left: 18px;
+  align-self: flex-start;
+}
+
+.food-card-title {
+  margin: 8px 0 4px 0;
+  color: #2e7d32;
+}
+
+.food-card-detail {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+// Utility and global styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+// List view container
+.food-card-list.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

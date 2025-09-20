@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import './AddFoodModal.css';
+
+import type { FoodData } from '../firebase/food';
 
 interface AddFoodModalProps {
   foodName: string;
   setFoodName: (name: string) => void;
-  addFood: (food?: any) => void;
+  addFood: (food?: Partial<FoodData>) => void;
   addError: string;
   addSuccess: string;
 }

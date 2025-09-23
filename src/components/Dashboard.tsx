@@ -147,7 +147,7 @@ const Dashboard: React.FC = () => {
           ) : (
             <div className={`food-card-list ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}> 
               {foodList.map((food) => (
-                <div className="food-card" key={food.id}>
+                <div className={`food-card ${viewMode}-view`} key={food.id}>
                   <button
                     className="food-card-delete"
                     onClick={() => food.id && handleDelete(food.id)}

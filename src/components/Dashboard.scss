@@ -64,20 +64,21 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 16px;
+  padding-inline: 16px;
 }
 
 // List view overrides for details when inside .food-card-list.list-view .food-card
 .food-card-list.list-view .food-card .food-card-details {
   flex: 1;
-  display: flex;
+  display: block;
   flex-direction: column;
   gap: 4px;
 }
 
 .food-card-delete {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 0px;
+  right: 0px;
   width: 32px;
   height: 32px;
   display: flex;
@@ -102,7 +103,7 @@
 
 // List view overrides for delete button when inside .food-card-list.list-view .food-card
 .food-card-list.list-view .food-card .food-card-delete {
-  position: static;
+  position: absolute;
   margin-left: 18px;
   align-self: flex-start;
 }
